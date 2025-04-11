@@ -1,0 +1,6 @@
+Laboratorium 3:
+
+Wnioski:
+
+Najlepszą metodą bezpośrednią. Zapewniają najlepszy wynik kosztem dużej złożoności obliczeniowej. Metoda Jacobiego jest prosta w implementacji i zapewnia 
+duże przybliżenie poprawności rozwiązania, jednak wymaga dominacji diagonalnej. Metoda Gaussa-Seidla jest szybsza niż Jacobiego i wymaga mniej iteracji, ale nie zawsze zapewnia zbieżność.
