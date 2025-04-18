@@ -1,0 +1,8 @@
+Dla punktu startowego x = 4.5 funkcja fzero wyznaczyła rozwiązanie x = 4.7124 tan(x) = -9.0747e+04. 
+Nie jest to prawidłowe rozwiązanie.
+Funkcja nie znajduje dokładnego przybliżenia z powodu zbyt dużych różnic
+pomiędzy kolejnymi wartościami X.
+
+Dla punktu startowego x = 6.0 funkcja fzero wyznaczyła rozwiązanie x = 6.28319 tan(x) = -2.44929e-16. 
+Znaleźone miejsce zerowe jest podane z zadowalającą dokładnością.
+Funkcja znajduje przedział na którym znajduje się miejsce zerowe.
