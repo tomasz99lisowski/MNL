@@ -18,7 +18,7 @@ tic;
 t_factorization = toc;
 tic;
 y = L\(P*b);
-x = U\y;
+x = U\y; %U^-1 x y
 t_substitution = toc;
 t_direct = t_factorization + t_substitution;
 r_norm = norm(A*x - b);

@@ -11,7 +11,7 @@ function [A,b,U,T,w,x,r_norm,iteration_count] = solve_Gauss_Seidel()
 % iteration_count - liczba iteracji wymagana do wyznaczenia rozwiązania
 %       metodą Gaussa-Seidla
 
-N = 5001;
+N = 1200 + 10*4 + 9;
 
 [A,b] = generate_matrix(N);
 
@@ -49,3 +49,5 @@ xlabel('Iteration');
 ylabel('Norm value');
 r_norm = r_norm';
 end
+
+

@@ -1,4 +1,5 @@
 function [A,b] = generate_matrix(N)
+%{
     % A - macierz o rozmiarze NxN
     % b - wektor o rozmiarze Nx1
     % convergense_factor - regulacja elementów diagonalnych macierzy A, które
@@ -25,5 +26,22 @@ function [A,b] = generate_matrix(N)
     A = A/norm_Frobenius;
 
     b = rand(N,1);
+%}
+    diag_value = 5 + 7; % czyli 12
+    upper_value = -1;
+    lower_value = -1;
+
+    % Tworzenie macierzy A
+    A = diag(diag_value * ones(N,1)) + ...
+        diag(upper_value * ones(N-1,1), 1) + ...
+        diag(lower_value * ones(N-1,1), -1);
+
+    % Tworzenie wektora b
+    b = zeros(N,1);
+    for i = 1:N
+        b(i) = sin((i-1) * (7 + 1)); % i-1 bo MATLAB liczy od 1
+    end
+  
 end
+    
 
