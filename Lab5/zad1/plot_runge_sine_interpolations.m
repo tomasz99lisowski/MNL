@@ -68,13 +68,13 @@ function [node_counts, exact_runge, exact_sine, V, interpolated_runge, interpola
 
         subplot(2,1,1);
         % TODO: plot interpolated_runge{i}
-        plot(interpolated_runge{i})
+        plot(x_fine, interpolated_runge{i})
         title("Interpolated value")
         xlabel("X value")
         ylabel("Runge value")
         subplot(2,1,2);
         % TODO: plot interpolated_sine{i}
-        plot(interpolated_sine{i})
+        plot(x_fine,interpolated_sine{i})
         title("Interpolated value")
         xlabel("X value")
         ylabel("Sine value")
@@ -84,9 +84,12 @@ function [node_counts, exact_runge, exact_sine, V, interpolated_runge, interpola
     subplot(2,1,1)
     legend show
     legend('Location', 'eastoutside')
+    
+    subplot(2,1,2)
+    legend show
+    legend('Location', 'eastoutside')
 
-
-    set(gcf, 'Position', [1000 500 2000 1500]);
+    %set(gcf, 'Position', [1000 500 2000 1500]);
     saveas(gcf, 'zadanie1.png');
 end
 

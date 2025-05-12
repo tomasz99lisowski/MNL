@@ -39,7 +39,7 @@ function [matrix_sizes, condition_numbers, interpolation_error_exact, interpolat
     % Wykres 1
     tiledlayout(3, 1, 'Padding', 'compact', 'TileSpacing', 'compact');
     nexttile;
-    %semilogy(matrix_sizes,  % TODO
+    semilogy(condition_numbers);
 
     if ~isempty(threshold_index)
         size_threshold = matrix_sizes(threshold_index);
@@ -47,7 +47,7 @@ function [matrix_sizes, condition_numbers, interpolation_error_exact, interpolat
             'horizontal', 'LabelVerticalAlignment', 'top',...
             'LabelHorizontalAlignment', 'left', 'Color', [0.494 0.184 0.556]);
     end
-    semilogy(condition_numbers);
+    
     title("Normal matrix");
     xlabel("Matrix size");
     ylabel("Condition number");

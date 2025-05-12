@@ -72,7 +72,7 @@ function [N, x_uniform, y_fine_uniform, x_chebyshev, y_fine_chebyshev] = ...
     xlabel('x');
     ylabel('y');
     title('Chebyshev nodes')
-    set(gcf, 'Position', [1000 500 2000 1500]);
+    %set(gcf, 'Position', [1000 500 2000 1500]);
     saveas(gcf, 'zadanie2.png');
 end
 
