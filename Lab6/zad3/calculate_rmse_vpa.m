@@ -1,4 +1,5 @@
 function [dates, y, rmse_values, M, c_vpa, ya] = calculate_rmse_vpa()
+
 % W tej funkcji obliczenia wykonywane są na zmiennych vpa, jednakże spośród
 % zwracanych zmiennych tylko c_vpa jest wektorem zmiennych vpa.
 %
@@ -20,7 +21,7 @@ function [dates, y, rmse_values, M, c_vpa, ya] = calculate_rmse_vpa()
 
     digits(120); % określa liczbę cyfr dziesiętnych w zmiennych vpa
 
-    M = 90; % stopień wielomianu aproksymacyjnego
+    M = 71; % stopień wielomianu aproksymacyjnego
 
     load energy_2025;
 
@@ -39,7 +40,8 @@ function [dates, y, rmse_values, M, c_vpa, ya] = calculate_rmse_vpa()
 
     %degrees = [10, 20];
     %degrees = [N-10, N-1];
-    degrees = [N-10, N-1];
+    %degrees = [N-10, N-1];
+    degrees = 1:N-1;
     x_vpa = linspace(vpa(0),vpa(1),N)';
     y_vpa = vpa(y);
 

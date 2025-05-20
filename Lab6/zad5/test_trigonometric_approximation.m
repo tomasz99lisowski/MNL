@@ -16,7 +16,7 @@ function [dates, y, M, a, b, x_fine, ya, rmse_values] = test_trigonometric_appro
 
     M = 20; 
 
-    load energy_2025
+    load energy_2025;
 
 
     dates = energy_2025.USA.Nuclear.Dates; 
@@ -45,16 +45,18 @@ function [dates, y, M, a, b, x_fine, ya, rmse_values] = test_trigonometric_appro
         ya4rmse = trigonometric_approximation(x, N, k, a, b);
         rmse_values(k) = sqrt(mean((y - ya4rmse).^2));
     end
-
+    
+    figure
     subplot(2, 1, 1);
-    plot(rmse_values);
+    plot(1:k_max, rmse_values);
     title("RMSE values");
     xlabel("Liczba harmonicznych");
     ylabel("RMSE");
+    
     subplot(2, 1, 2);
-    plot(dates, y, "r");
+    plot(x, y, "r");
     hold on;
-    plot(dates, ya4rmse, "b");
+    plot(x_fine, ya, "b");
     hold off;
     legend("Actual", "Approximation");
     title("Aproksymacja wielomianowa z wykorzystaniem funkcji tygonometrycznych");

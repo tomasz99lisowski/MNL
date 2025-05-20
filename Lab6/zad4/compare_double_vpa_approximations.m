@@ -40,7 +40,7 @@ function [dates, y, M, x_fine, c, ya, c_vpa, yv] = compare_double_vpa_approximat
 
 
     % siatka rzadka
-    x_vpa = linspace(vpa(0),vpa(1),N)';
+    x_vpa = linspace(vpa(0),vpa(1), N)';
     x = double(x_vpa);
 
     % siatka gęsta
@@ -65,40 +65,45 @@ function [dates, y, M, x_fine, c, ya, c_vpa, yv] = compare_double_vpa_approximat
     ymax = max(y)*2;
     ymin = -0.25*ymax; 
 
+
     % Wykres 1: ya
     subplot(3,1,1);
     % zmiana limitów dla osi y
-    plot(ya);
+    plot(x_fine, ya);
     hold on
-    plot(y);
+    plot(x_fine, yv);
     hold off;
-    ax = axis;
-    ax(3) = ymin;
-    ax(4) = ymax;
-    axis(ax)
     title("Double approximation");
     xlabel("X");
     ylabel("Y");
     legend("Double", "Actual");
-    subplot(3, 1, 2);
-
-    plot(yv);
-    hold on;
-    plot(y);
-    hold off;
     ax = axis;
     ax(3) = ymin;
     ax(4) = ymax;
+    axis(ax);
+
+
+    subplot(3, 1, 2);
+    plot(x, y);
+    hold on;
+    plot(x_fine, yv);
+    hold off;
     axis(ax)
     title("VPA approximation");
     xlabel("X");
     ylabel("Y");
     legend("VPA", "Actual");
+    ax = axis;
+    ax(3) = ymin;
+    ax(4) = ymax;
+    axis(ax);
+    
+
     subplot(3, 1, 3);
-    plot_c_range(ya, yv);
+    plot_c_range(c, c_vpa);
     xlabel("X");
     ylabel("Y");
-    legend("VPA");
+    legend("Double","VPA");
     saveas(gcf, "zadanie4.png");
 end
 
@@ -137,10 +142,10 @@ function c_vpa = polyfit_qr_vpa(x, y, M)
     A = vpa(x .^ (0:M));  % rozmiar [N, M+1]
 
     % QR z symbolic toolbox (działa na vpa)
-    [Q, R] = qr(A, 0);  % ekonomiczny QR
+    [Q, R] = qr(A, vpa(0));  % ekonomiczny QR
 
     % Rozwiązanie równania normalnego: R * c = Q' * y
-    c_vpa = R \ (Q.' * y);
+    c_vpa = vpa(R) \ (vpa(Q).' * vpa(y));
 end
 
 function y = polyval_vpa(coefficients, x)

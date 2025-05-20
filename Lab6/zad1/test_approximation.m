@@ -11,8 +11,8 @@ function [dates, y, M, c, ya] = test_approximation()
     load energy_2025;
 
 
-    dates = energy_2025.Germany.Wind.Dates; % dates = energy_2025.C.S.Dates; % TODO
-    y = energy_2025.Germany.Wind.EnergyProduction; % TODO
+    dates = energy_2025.USA.Nuclear.Dates; % dates = energy_2025.C.S.Dates; % TODO
+    y = energy_2025.USA.Nuclear.EnergyProduction; % TODO
 
     M = 12; % stopień wielomianu aproksymacyjnego
 
